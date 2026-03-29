@@ -1,0 +1,55 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "video-autosplitter"
+version = "0.1.0"
+description = "Automatically split videos using silence detection, scene changes, black frames, or fixed intervals."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "CJ McMahon" }
+]
+keywords = ["video", "ffmpeg", "split", "silence-detection", "scene-detection", "cli"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: End Users/Desktop",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Video",
+]
+dependencies = [
+    "click>=8.0",
+    "rich>=13.0",
+]
+
+[project.optional-dependencies]
+scene = ["scenedetect[opencv]>=0.6.2"]
+all = ["scenedetect[opencv]>=0.6.2"]
+dev = [
+    "pytest>=7.0",
+    "ruff>=0.4.0",
+]
+
+[project.scripts]
+autosplit = "autosplitter.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Cellerx101/video-autosplitter"
+Issues = "https://github.com/Cellerx101/video-autosplitter/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W"]
