@@ -14,6 +14,7 @@ class DetectionMethod(Enum):
     SCENE = "scene"
     BLACKFRAME = "blackframe"
     INTERVAL = "interval"
+    COMBINED = "combined"
 
 
 class Preset(Enum):
