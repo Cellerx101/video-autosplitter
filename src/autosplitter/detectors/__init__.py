@@ -4,10 +4,13 @@ from .blackframe import BlackFrameDetector
 from .interval import IntervalDetector
 from .scene import SceneDetector
 from .silence import SilenceDetector
+from .combined import CombinedDetector
 
 __all__ = [
     "SilenceDetector",
     "SceneDetector",
     "BlackFrameDetector",
     "IntervalDetector",
+    "CombinedDectector",
+    
 ]
