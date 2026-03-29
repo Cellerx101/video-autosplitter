@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+
 import time
 from pathlib import Path
 
 from .detectors import (
     BlackFrameDetector,
+    CombinedDetector,
     IntervalDetector,
     SceneDetector,
     SilenceDetector,
@@ -30,6 +32,7 @@ def get_detector(
         DetectionMethod.SCENE: SceneDetector,
         DetectionMethod.BLACKFRAME: BlackFrameDetector,
         DetectionMethod.INTERVAL: IntervalDetector,
+        DetectionMethod.COMBINED: CombinedDetector,
     }
     cls = detectors[method]
 
