@@ -17,7 +17,7 @@ from .splitter import run_split
 
 console = Console()
 
-METHOD_CHOICES = click.Choice(["silence", "scene", "blackframe", "interval"])
+METHOD_CHOICES = click.Choice(["silence", "scene", "blackframe", "interval, "combined"])
 PRESET_CHOICES = click.Choice(["podcast", "vlog", "lecture", "surveillance", "music"])
 
 
