@@ -1,4 +1,4 @@
-# ⚡ video-autosplitter
+VIDEO-AUTOSPLITTER  *S V A*
 
 **Automatically split videos using silence detection, scene changes, black frames, or fixed intervals.**
 
@@ -6,19 +6,21 @@
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
----
+After discovering what ffmpeg was and seeing its ulttilty that the libraries just freely give us, I was motivated to try and create soemthing I thought would be helpful to the creators of all types.  Video-Autosplitter is my first creation that seems so simple and that solves the issues of video formating and clipping.  Both of these fucntions are in my oppinon, basic humans abitilties that corperations try to abstract out of our hands.  Below is what i have managed to put togehter with the help of Claude by Anthropic.  
+
+
 
 > One CLI tool. Four detection methods. Zero re-encoding by default.
 
-Most video splitting tools do one thing — silence detection OR scene detection OR fixed intervals. **autosplit** combines all four methods into a single CLI with content-type presets, dry-run previews, and multi-format export (EDL, YouTube chapters, ffconcat).
+Most video splitting tools do one thing — silence detection OR scene detection OR fixed intervals.  The Autosplit tool combines all four methods into a single CLI with content-type presets, dry-run previews, and multi-format export (EDL, YouTube chapters, ffconcat).
 
-## Features
+ Features
 
 - **Silence detection** — Split at audio gaps. Perfect for podcasts, lectures, interviews.
 - **Scene detection** — Split at visual cuts using [PySceneDetect](https://www.scenedetect.com/)'s adaptive algorithm.
 - **Black frame detection** — Split at fade-to-black transitions. Ideal for TV recordings and presentations.
 - **Fixed intervals** — Split every N seconds. Simple batch processing.
-- **Content presets** — `--preset podcast`, `--preset vlog`, `--preset lecture` auto-configure thresholds.
+- **Content presets** — `--preset podcast`, `--preset vlog`, `--preset lecture` auto-configure thresholds based on Your input 
 - **Dry-run mode** — Preview split points without writing files.
 - **Export formats** — EDL (Premiere/Resolve), YouTube chapter timestamps, ffconcat.
 - **JSON output** — Pipe results to other tools with `--json-output`.
@@ -73,16 +75,33 @@ autosplit split video.mp4 --dry-run --export chapters
 autosplit split video.mp4 --dry-run --json-output
 ```
 
-## Usage
+## DETECTION METHODS (-m)
 
-### Detection Methods
+### Silence detection (default)
+Splits at audio gaps. Best for: podcasts, lectures, interviews.
+```bash
+autosplit split video.mp4 -m silence
 
-| Method | Flag | Best For | Speed |
-|---|---|---|---|
-| Silence | `-m silence` | Podcasts, lectures, interviews | ⚡ Fast (audio-only scan) |
-| Scene | `-m scene` | Vlogs, multi-cam, music videos | 🔄 Medium (frame analysis) |
-| Black Frame | `-m blackframe` | TV recordings, presentations | ⚡ Fast |
-| Interval | `-m interval` | Batch processing, uniform clips | ⚡ Instant |
+### Scene detection
+Splits at visual changes. Best for: vlogs, trailers, compilations, anime.
+```bash
+autosplit split video.mp4 -m scene
+```
+### Black frame detection
+Splits at fade-to-black transitions. Best for: TV recordings, presentations.
+```bash
+autosplit split video.mp4 -m blackframe
+```
+### Fixed interval
+Splits every N seconds. Best for: batch processing, uniform clips.
+```bash
+autosplit split video.mp4 -m interval --interval 60
+```
+### Combined (multi-method)
+Runs multiple methods and scores by agreement. Best for: highest accuracy.
+```bash
+autosplit split video.mp4 -m combined
+```
 
 ### Content Presets
 
