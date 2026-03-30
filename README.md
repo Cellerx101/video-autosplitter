@@ -6,7 +6,7 @@ VIDEO-AUTOSPLITTER  *S V A*
 [![License: MIT](https://img.shields.io/badge/license-MIT-yellow.svg)](LICENSE)
 [![Code style: ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
 
-After discovering what ffmpeg was and seeing its ulttilty that the libraries just freely give us, I was motivated to try and create soemthing I thought would be helpful to the creators of all types.  Video-Autosplitter is my first creation that seems so simple and that solves the issues of video formating and clipping.  Both of these fucntions are in my oppinon, basic humans abitilties that corperations try to abstract out of our hands.  Below is what i have managed to put togehter with the help of Claude by Anthropic.  
+After discovering what ffmpeg was and seeing its ulttilty that the libraries just freely give us, I was motivated to try and create soemthing I thought would be helpful to the creators of all types.  Video-Autosplitter is my first creation that seems so simple and that solves the issues of video formating and clipping.  Both of these fucntions are in my oppinon, basic humans abitilties that corporations try to abstract out of our hands.  Below is what i have managed to put togehter with the help of Claude by Anthropic.  
 
 
 
